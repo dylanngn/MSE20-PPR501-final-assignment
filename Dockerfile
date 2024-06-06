@@ -9,7 +9,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
 
 COPY . /code
 
-EXPOSE 80
+EXPOSE 5000
 
 ENTRYPOINT ["python"]
-CMD ["gunicorn", "app:app", "-b", "0.0.0.0:80"]
+CMD [ "-m", "flask", "run", "--host=0.0.0.0" ]
